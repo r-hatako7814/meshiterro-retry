@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   get 'post_comment/create'
   get 'post_comment/destroy'
   devise_for :users
@@ -7,6 +8,8 @@ Rails.application.routes.draw do
   resources :post_images,only: [:new,:create,:index,:show,:destroy]do
     resource :favorites,only: [:create,:destroy]
     resources :post_comments,only: [:create,:destroy]
-
   end
+
+  resources :users,only: [:show]
+
 end
