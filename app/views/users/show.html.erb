@@ -1,6 +1,9 @@
 <div>
   <h3><%= @user.name %></h3>
   <%= image_tag('sample-author1.jpeg') %>
+  <%= if @user.id == current_usser.id %>
+    <p><% link_to "プロフィール編集",edit_user_path(@user) %></p>
+  <% end %>
 </div>
 
 
